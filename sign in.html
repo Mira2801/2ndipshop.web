@@ -1,0 +1,1814 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - 2ndipShopCBC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #D5F6FB;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3498db;
+            animation: underlineSlide 0.3s ease;
+        }
+        
+        @keyframes underlineSlide {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .cart-icon {
+            margin-left: 10px;
+            position: relative;
+        }
+        
+        .cart-icon a {
+            color: #555;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon a:hover {
+            color: #3498db;
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        
+        .hero-signin {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 50px;
+            border-radius: 0 0 20px 20px;
+            animation: heroSlideUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes heroSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-signin h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: textReveal 0.8s ease-out 0.4s both;
+        }
+        
+        .hero-signin p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: textReveal 0.8s ease-out 0.6s both;
+        }
+        
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            background-color: white;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: textReveal 0.8s ease-out 0.8s both;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1s both;
+        }
+        
+        @keyframes contentReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        
+        .auth-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+            width: 100%;
+            max-width: 500px; /* Default size untuk sign in */
+        }
+        
+        
+        .signup-section .auth-card {
+            max-width: 600px; /* Lebar untuk sign up */
+            padding: 45px 50px; /* Padding lebih besar */
+        }
+        
+        .auth-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: #7f8c8d;
+        }
+        
+        .auth-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+            transition: all 0.4s ease;
+        }
+        
+       
+        .signup-section .auth-icon {
+            width: 80px;
+            height: 80px;
+            font-size: 35px;
+        }
+        
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .signup-section .form-group {
+            margin-bottom: 30px; /* Lebih banyak space untuk sign up */
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .signup-section .form-label {
+            font-size: 17px; /* Label lebih besar untuk sign up */
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .signup-section .form-control {
+            padding: 17px; /* Input field lebih besar */
+            font-size: 17px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .password-container {
+            position: relative;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .signup-section .password-toggle {
+            right: 20px; /* Adjusted untuk padding lebih besar */
+        }
+        
+        .password-toggle:hover {
+            color: #3498db;
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .remember-me input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .remember-me label {
+            color: #7f8c8d;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .forgot-password {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .forgot-password:hover {
+            color: #2980b9;
+            transform: translateX(3px);
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .signup-section .auth-btn {
+            padding: 20px; /* Button lebih besar */
+            font-size: 19px;
+        }
+        
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .auth-btn.loading {
+            cursor: not-allowed;
+        }
+        
+        .auth-btn.loading .btn-text {
+            visibility: hidden;
+        }
+        
+        .auth-btn.loading:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 4px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: button-loading-spinner 1s ease infinite;
+        }
+        
+        @keyframes button-loading-spinner {
+            from {
+                transform: rotate(0turn);
+            }
+            to {
+                transform: rotate(1turn);
+            }
+        }
+        
+        .auth-divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .signup-section .auth-divider {
+            margin: 35px 0; /* Lebih banyak margin untuk sign up */
+        }
+        
+        .auth-divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+        
+        .auth-divider span {
+            background-color: white;
+            padding: 0 15px;
+            color: #7f8c8d;
+            position: relative;
+        }
+        
+        .social-auth {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .signup-section .social-auth {
+            gap: 18px; /* Lebih banyak space untuk social buttons */
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: white;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .signup-section .social-btn {
+            padding: 17px; /* Social buttons lebih besar */
+            font-size: 17px;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-btn.google:hover {
+            border-color: #db4437;
+            color: #db4437;
+        }
+        
+        .social-btn.facebook:hover {
+            border-color: #4267B2;
+            color: #4267B2;
+        }
+        
+        .social-btn.apple:hover {
+            border-color: #000;
+            color: #000;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+        }
+        
+        .signup-section .auth-footer {
+            margin-top: 25px;
+        }
+        
+        .auth-footer a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-footer a:hover {
+            color: #2980b9;
+            transform: translateX(3px);
+        }
+        
+        
+        .signup-section {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+            width: 100%;
+            max-width: 600px; 
+            margin: 0 auto;
+        }
+        
+        .signup-section.active {
+            display: block;
+        }
+        
+        .back-to-signin {
+            background: none;
+            border: none;
+            color: #3498db;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .signup-section .back-to-signin {
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+        
+        .back-to-signin:hover {
+            color: #2980b9;
+            transform: translateX(-3px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        
+        .benefits-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.2s both;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+            transition: all 0.4s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1);
+        }
+        
+        .benefit-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 22px;
+            transition: color 0.3s ease;
+        }
+        
+        .benefit-card:hover h3 {
+            color: #3498db;
+        }
+        
+        .benefit-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: auto;
+            opacity: 0;
+            animation: footerReveal 0.8s ease-out 1.4s both;
+        }
+        
+        @keyframes footerReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #3498db;
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+        
+        
+        .custom-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .custom-alert.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .alert-content {
+            background-color: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 450px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-30px) scale(0.9);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: auto;
+            position: relative;
+        }
+        
+        .custom-alert.active .alert-content {
+            transform: translateY(0) scale(1);
+        }
+        
+        .alert-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 36px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .alert-title {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .alert-message {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .alert-btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .alert-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        
+        button, a, .btn, .auth-card, .benefit-card, .social-btn {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
+            .hero-signin h1 {
+                font-size: 36px;
+            }
+            
+            .hero-signin p {
+                font-size: 18px;
+            }
+            
+            .auth-card {
+                padding: 30px 25px;
+                max-width: 95%;
+            }
+            
+            .signup-section .auth-card {
+                max-width: 95%;
+                padding: 35px 30px;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .signup-section .auth-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 30px;
+            }
+            
+            .signup-section .form-control {
+                padding: 15px;
+                font-size: 16px;
+            }
+            
+            .signup-section .auth-btn {
+                padding: 18px;
+                font-size: 18px;
+            }
+            
+            .alert-content {
+                padding: 30px 25px;
+            }
+            
+            .alert-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 32px;
+            }
+            
+            .alert-title {
+                font-size: 24px;
+            }
+            
+            .alert-message {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 25px 20px;
+            }
+            
+            .signup-section .auth-card {
+                padding: 30px 25px;
+            }
+            
+            .auth-header h2 {
+                font-size: 24px;
+            }
+            
+            .hero-signin h1 {
+                font-size: 32px;
+            }
+            
+            .hero-signin p {
+                font-size: 16px;
+            }
+            
+            .alert-content {
+                padding: 25px 20px;
+            }
+            
+            .alert-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+            
+            .alert-title {
+                font-size: 22px;
+            }
+            
+            .alert-message {
+                font-size: 15px;
+            }
+            
+            .alert-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="index.html" class="logo">2ndip<span>ShopCBC</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about us.html">ABOUT US</a></li>
+                    <li><a href="purchase.html">PURCHASE</a></li>
+                    <li><a href="support.html">SUPPORT</a></li>
+                    <li><a href="sign in.html" class="active">SIGN IN</a></li>
+                    <li class="cart-icon">
+                        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-signin">
+        <div class="container">
+            <h1>Welcome Back to 2ndipShopCBC</h1>
+            <p>Sign in to access your account, track orders, and enjoy exclusive member benefits.</p>
+            <!-- BUTTON INI YANG AKAN SCROLL KE SIGN IN FORM -->
+            <a href="#signin-form" class="btn" id="hero-signin-btn">Sign In Now</a>
+        </div>
+    </section>
+
+    <!-- Auth Container -->
+    <div class="container">
+        <div class="auth-container">
+            <!-- Single Auth Card -->
+            <div class="auth-card" id="signin-form">
+                <!-- Sign In Form (Default View) -->
+                <div class="signin-section">
+                    <div class="auth-header">
+                        <div class="auth-icon">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </div>
+                        <h2>Sign In to Your Account</h2>
+                        <p>Enter your credentials to access your account</p>
+                    </div>
+                    
+                    <form id="signinForm">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="signinEmail" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password *</label>
+                            <div class="password-container">
+                                <input type="password" id="signinPassword" class="form-control" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" id="toggleSigninPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="auth-btn">
+                            <span class="btn-text">Sign In</span>
+                        </button>
+                        
+                        <div class="auth-divider">
+                            <span>Or continue with</span>
+                        </div>
+                        
+                        <div class="social-auth">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                Continue with Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Continue with Facebook
+                            </button>
+                            <button type="button" class="social-btn apple">
+                                <i class="fab fa-apple"></i>
+                                Continue with Apple
+                            </button>
+                        </div>
+                        
+                        <div class="auth-footer">
+                            Don't have an account? <a href="#" id="show-signup">Create New Account</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+           
+            <div class="signup-section">
+                <div class="auth-card">
+                    <button type="button" class="back-to-signin" id="back-to-signin">
+                        <i class="fas fa-arrow-left"></i> Back to Sign In
+                    </button>
+                    
+                    <div class="auth-header">
+                        <div class="auth-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h2>Create New Account</h2>
+                        <p>Join 2ndipShopCBC for exclusive benefits</p>
+                    </div>
+                    
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password *</label>
+                            <div class="password-container">
+                                <input type="password" id="signupPassword" class="form-control" placeholder="Create a strong password" required>
+                                <button type="button" class="password-toggle" id="toggleSignupPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small style="color: #7f8c8d; display: block; margin-top: 5px;">Must be at least 8 characters with letters and numbers</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                                <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="remember-me">
+                                <input type="checkbox" id="termsAgree" required>
+                                <label for="termsAgree">I agree to the <a href="#" style="color: #3498db;">Terms & Conditions</a> and <a href="#" style="color: #3498db;">Privacy Policy</a></label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="auth-btn">
+                            <span class="btn-text">Create Account</span>
+                        </button>
+                        
+                        <div class="auth-divider">
+                            <span>Or sign up with</span>
+                        </div>
+                        
+                        <div class="social-auth">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                Sign up with Google
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Sign up with Facebook
+                            </button>
+                            <button type="button" class="social-btn apple">
+                                <i class="fab fa-apple"></i>
+                                Sign up with Apple
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <h2 class="section-title">Member Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Faster Checkout</h3>
+                    <p>Save your shipping and payment details for quick, one-click purchases.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Order Tracking</h3>
+                    <p>Track all your orders in real-time and receive delivery notifications.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Exclusive Discounts</h3>
+                    <p>Get member-only discounts, early access to sales, and special offers.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Wishlist</h3>
+                    <p>Save your favorite iPhones and accessories for later purchase.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CONTACT US</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Customer Service</a></li>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html">Returns</a></li>
+                        <li><a href="support.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>IPHONE INFO</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">iPhone Models</a></li>
+                        <li><a href="index.html">Accessories</a></li>
+                        <li><a href="purchase.html">Trade-in</a></li>
+                        <li><a href="index.html">Shop Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>ACCOUNT</h3>
+                    <ul class="footer-links">
+                        <li><a href="sign-in.html">Sign In</a></li>
+                        <li><a href="sign-in.html">Create Account</a></li>
+                        <li><a href="sign-in.html">Order History</a></li>
+                        <li><a href="sign-in.html">Account Settings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <p>Stay connected with us on social media</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 2ndipShopCBC. All rights reserved. | Designed with ❤️ for iPhone lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Alert Modal -->
+    <div class="custom-alert" id="customAlert">
+        <div class="alert-content">
+            <div class="alert-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="alert-title" id="alertTitle">Success!</h2>
+            <p class="alert-message" id="alertMessage">Your action was completed successfully.</p>
+            <button class="alert-btn" id="alertBtn">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        // Update cart count with animation
+        function updateCartCount() {
+            const savedCart = localStorage.getItem('iphoneCart');
+            let totalItems = 0;
+            
+            if (savedCart) {
+                const cart = JSON.parse(savedCart);
+                cart.forEach(item => {
+                    totalItems += item.quantity;
+                });
+            }
+            
+            const cartCountElement = document.getElementById('cartCount');
+            cartCountElement.textContent = totalItems;
+            
+            // Add animation to cart count when it changes
+            cartCountElement.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartCountElement.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // Highlight current page
+        function highlightCurrentPage() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkPage = link.getAttribute('href');
+                
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Custom Alert System - BOLEH SCROLL
+        function showCustomAlert(title, message, type = 'success') {
+            const alertModal = document.getElementById('customAlert');
+            const alertTitle = document.getElementById('alertTitle');
+            const alertMessage = document.getElementById('alertMessage');
+            const alertIcon = document.querySelector('.alert-icon i');
+            
+            // Set title and message
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+            
+            // Set icon based on type
+            if (type === 'success') {
+                alertIcon.className = 'fas fa-check';
+                document.querySelector('.alert-icon').style.background = 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)';
+            } else if (type === 'error') {
+                alertIcon.className = 'fas fa-exclamation-triangle';
+                document.querySelector('.alert-icon').style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+            } else if (type === 'info') {
+                alertIcon.className = 'fas fa-info-circle';
+                document.querySelector('.alert-icon').style.background = 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)';
+            }
+            
+            // Show modal
+            alertModal.classList.add('active');
+            
+            // BOLEH SCROLL - TAK DISABLE BODY SCROLL
+        }
+        
+        // Close custom alert
+        function closeCustomAlert() {
+            const alertModal = document.getElementById('customAlert');
+            alertModal.classList.remove('active');
+        }
+        
+        // Setup alert button
+        document.getElementById('alertBtn').addEventListener('click', closeCustomAlert);
+        
+        // Setup hero sign in button scroll
+        function setupHeroSigninButton() {
+            const heroSigninBtn = document.getElementById('hero-signin-btn');
+            
+            if (heroSigninBtn) {
+                heroSigninBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const signinForm = document.getElementById('signin-form');
+                    if (signinForm) {
+                        // Calculate position to scroll
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const signinFormPosition = signinForm.offsetTop - headerHeight - 20;
+                        
+                        // Smooth scroll to sign in form
+                        window.scrollTo({
+                            top: signinFormPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Add highlight animation to sign in form
+                        signinForm.style.transform = 'scale(1.02)';
+                        signinForm.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                        
+                        setTimeout(() => {
+                            signinForm.style.transform = 'scale(1)';
+                            signinForm.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                        }, 1000);
+                    }
+                });
+            }
+        }
+        
+        // Form switching functionality
+        function setupFormSwitching() {
+            const showSignupLink = document.getElementById('show-signup');
+            const backToSigninBtn = document.getElementById('back-to-signin');
+            const signinCard = document.querySelector('#signin-form');
+            const signupSection = document.querySelector('.signup-section');
+            
+            if (showSignupLink && signupSection) {
+                showSignupLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Hide sign in card
+                    signinCard.style.display = 'none';
+                    
+                    // Show sign up section with animation
+                    signupSection.classList.add('active');
+                    signupSection.style.display = 'block';
+                    
+                    // Smooth scroll to form
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const signupPosition = signupSection.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: signupPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            if (backToSigninBtn && signinCard) {
+                backToSigninBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Hide sign up section
+                    signupSection.classList.remove('active');
+                    signupSection.style.display = 'none';
+                    
+                    // Show sign in card
+                    signinCard.style.display = 'block';
+                    
+                    // Smooth scroll to form
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const signinPosition = signinCard.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: signinPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+        
+        // Password toggle functionality
+        function setupPasswordToggles() {
+            // Sign in password toggle
+            const toggleSigninPassword = document.getElementById('toggleSigninPassword');
+            const signinPassword = document.getElementById('signinPassword');
+            
+            if (toggleSigninPassword && signinPassword) {
+                toggleSigninPassword.addEventListener('click', function() {
+                    const type = signinPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    signinPassword.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+            
+            // Sign up password toggle
+            const toggleSignupPassword = document.getElementById('toggleSignupPassword');
+            const signupPassword = document.getElementById('signupPassword');
+            
+            if (toggleSignupPassword && signupPassword) {
+                toggleSignupPassword.addEventListener('click', function() {
+                    const type = signupPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    signupPassword.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+            
+            // Confirm password toggle
+            const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+            const confirmPassword = document.getElementById('confirmPassword');
+            
+            if (toggleConfirmPassword && confirmPassword) {
+                toggleConfirmPassword.addEventListener('click', function() {
+                    const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    confirmPassword.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+        }
+        
+        // Form validation untuk sign up
+        function validateSignupForm(fullName, email, password, confirmPassword) {
+            const errors = [];
+            
+            // Check name
+            if (!fullName.trim()) {
+                errors.push('Full name is required');
+            }
+            
+            // Check email
+            if (!email.trim()) {
+                errors.push('Email is required');
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errors.push('Please enter a valid email address');
+            }
+            
+            // Check password strength
+            if (password.length < 8) {
+                errors.push('Password must be at least 8 characters long');
+            }
+            
+            if (!/(?=.*[a-zA-Z])(?=.*\d)/.test(password)) {
+                errors.push('Password must contain both letters and numbers');
+            }
+            
+            if (password !== confirmPassword) {
+                errors.push('Passwords do not match');
+            }
+            
+            return errors;
+        }
+        
+        // Sign in form handling - SEMUA LOGIN AKAN SUCCESS
+        function setupSigninForm() {
+            const signinForm = document.getElementById('signinForm');
+            
+            if (signinForm) {
+                signinForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const email = document.getElementById('signinEmail').value;
+                    const password = document.getElementById('signinPassword').value;
+                    
+                    // Get the submit button
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    
+                    // Show loading state on button
+                    if (submitBtn) {
+                        submitBtn.classList.add('loading');
+                        submitBtn.disabled = true;
+                    }
+                    
+                    // Simulate API call (1.5 seconds delay)
+                    setTimeout(() => {
+                        // SEMUA LOGIN AKAN SUCCESS - TAK PERLU CHECK CREDENTIALS
+                        // Save user session
+                        localStorage.setItem('userLoggedIn', 'true');
+                        localStorage.setItem('userEmail', email);
+                        
+                        // Remove loading state
+                        if (submitBtn) {
+                            submitBtn.classList.remove('loading');
+                            submitBtn.disabled = false;
+                        }
+                        
+                        // Show success alert
+                        showCustomAlert(
+                            'Login Successful!',
+                            'Welcome back to 2ndipShopCBC! You are now being redirected to the homepage.',
+                            'success'
+                        );
+                        
+                        // Change alert button text
+                        document.getElementById('alertBtn').textContent = 'Go to Homepage';
+                        
+                        // Handle alert button click to redirect
+                        const alertBtn = document.getElementById('alertBtn');
+                        alertBtn.onclick = function() {
+                            closeCustomAlert();
+                            setTimeout(() => {
+                                window.location.href = 'index.html';
+                            }, 300);
+                        };
+                    }, 1500);
+                });
+            }
+        }
+        
+        // Sign up form handling - TETAP SAMA
+        function setupSignupForm() {
+            const signupForm = document.getElementById('signupForm');
+            
+            if (signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values directly from inputs
+                    const fullName = document.getElementById('fullName').value;
+                    const email = document.getElementById('signupEmail').value;
+                    const password = document.getElementById('signupPassword').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    const termsAgree = document.getElementById('termsAgree').checked;
+                    
+                    // Validate form
+                    const errors = validateSignupForm(fullName, email, password, confirmPassword);
+                    
+                    // Check terms agreement
+                    if (!termsAgree) {
+                        errors.push('You must agree to the Terms & Conditions and Privacy Policy');
+                    }
+                    
+                    if (errors.length > 0) {
+                        showCustomAlert('Sign Up Error', errors.join('. '), 'error');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.classList.add('loading');
+                        submitBtn.disabled = true;
+                    }
+                    
+                    // Simulate API call (2 seconds delay)
+                    setTimeout(() => {
+                        // Save user data
+                        const userData = {
+                            fullName: fullName,
+                            email: email,
+                            password: password,
+                            createdAt: new Date().toISOString()
+                        };
+                        
+                        // Simpan ke localStorage
+                        localStorage.setItem('userData', JSON.stringify(userData));
+                        
+                        // Hide loading
+                        if (submitBtn) {
+                            submitBtn.classList.remove('loading');
+                            submitBtn.disabled = false;
+                        }
+                        
+                        // Show success alert
+                        showCustomAlert(
+                            'Account Created Successfully!',
+                            `Welcome ${fullName}! Your account has been created. You can now sign in with your credentials.`,
+                            'success'
+                        );
+                        
+                        // Change alert button text
+                        document.getElementById('alertBtn').textContent = 'Go to Sign In';
+                        
+                        // Reset form
+                        signupForm.reset();
+                        
+                        // Handle alert button click to go back to sign in
+                        const alertBtn = document.getElementById('alertBtn');
+                        alertBtn.onclick = function() {
+                            closeCustomAlert();
+                            
+                            // Switch back to sign in form after alert closes
+                            setTimeout(() => {
+                                document.getElementById('back-to-signin').click();
+                                
+                                // Auto-fill email in sign in form
+                                document.getElementById('signinEmail').value = email;
+                                
+                                // Add animation to sign in form
+                                const signinForm = document.getElementById('signin-form');
+                                signinForm.style.transform = 'translateY(-10px)';
+                                signinForm.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+                                
+                                setTimeout(() => {
+                                    signinForm.style.transform = 'translateY(0)';
+                                    signinForm.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                                }, 500);
+                                
+                                // Scroll to sign in form
+                                const headerHeight = document.querySelector('header').offsetHeight;
+                                const signinPosition = signinForm.offsetTop - headerHeight - 20;
+                                
+                                window.scrollTo({
+                                    top: signinPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, 300);
+                        };
+                    }, 2000);
+                });
+            }
+        }
+        
+        // Social login buttons
+        function setupSocialButtons() {
+            document.querySelectorAll('.social-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const provider = this.classList.contains('google') ? 'Google' :
+                                   this.classList.contains('facebook') ? 'Facebook' : 'Apple';
+                    
+                    // Show loading state
+                    const originalText = this.innerHTML;
+                    this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Connecting to ${provider}...`;
+                    this.disabled = true;
+                    
+                    // Simulate social login
+                    setTimeout(() => {
+                        showCustomAlert(
+                            'Social Login',
+                            `${provider} login would open in a real application. For demo purposes, please use the form above.`,
+                            'info'
+                        );
+                        
+                        // Reset button
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 1500);
+                });
+            });
+        }
+        
+        // Add hover effects to all interactive elements
+        function addHoverEffects() {
+            const interactiveElements = document.querySelectorAll('a, button, .btn, .auth-card, .benefit-card, .social-btn');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                });
+            });
+        }
+        
+        // Stagger animation for benefit cards
+        function staggerBenefitCards() {
+            const benefitCards = document.querySelectorAll('.benefit-card');
+            benefitCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1 + 1.2}s`;
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            highlightCurrentPage();
+            setupHeroSigninButton();
+            setupFormSwitching();
+            setupPasswordToggles();
+            setupSigninForm();
+            setupSignupForm();
+            setupSocialButtons();
+            addHoverEffects();
+            staggerBenefitCards();
+            
+            // Check if user is already logged in
+            const isLoggedIn = localStorage.getItem('userLoggedIn');
+            if (isLoggedIn === 'true') {
+                // Pre-fill email if available
+                const userEmail = localStorage.getItem('userEmail');
+                if (userEmail) {
+                    document.getElementById('signinEmail').value = userEmail;
+                }
+            }
+            
+            // Preload animation to prevent flash
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Handle page transitions for navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if (!link.classList.contains('cart-icon')) {
+                    link.addEventListener('click', function(e) {
+                        if (this.href && !this.href.includes('#') && this.href.includes('.html')) {
+                            e.preventDefault();
+                            const href = this.href;
+                            
+                            // Add fade out animation
+                            document.body.style.opacity = '0';
+                            document.body.style.transition = 'opacity 0.3s ease';
+                            
+                            setTimeout(() => {
+                                window.location.href = href;
+                            }, 300);
+                        }
+                    });
+                }
+            });
+            
+            // Check if URL has hash for sign in form
+            if (window.location.hash === '#signin-form') {
+                // Wait for page to load then scroll to sign in form
+                setTimeout(() => {
+                    const signinForm = document.getElementById('signin-form');
+                    if (signinForm) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const signinFormPosition = signinForm.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: signinFormPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

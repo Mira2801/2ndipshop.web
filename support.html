@@ -1,0 +1,1401 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - 2ndipShopCBC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #D5F6FB;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3498db;
+            animation: underlineSlide 0.3s ease;
+        }
+        
+        @keyframes underlineSlide {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .cart-icon {
+            margin-left: 10px;
+            position: relative;
+        }
+        
+        .cart-icon a {
+            color: #555;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon a:hover {
+            color: #3498db;
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        
+        .hero-support {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 50px;
+            border-radius: 0 0 20px 20px;
+            animation: heroSlideUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes heroSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-support h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: textReveal 0.8s ease-out 0.4s both;
+        }
+        
+        .hero-support p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: textReveal 0.8s ease-out 0.6s both;
+        }
+        
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            background-color: white;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: textReveal 0.8s ease-out 0.8s both;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        
+        .support-categories {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1s both;
+        }
+        
+        @keyframes contentReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 35px;
+            transition: all 0.4s ease;
+        }
+        
+        .category-card:hover .category-icon {
+            transform: rotateY(180deg) scale(1.1);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .category-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 22px;
+            transition: color 0.3s ease;
+        }
+        
+        .category-card:hover h3 {
+            color: #3498db;
+        }
+        
+        .category-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        
+        .contact-methods {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.2s both;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 40px;
+            transition: all 0.4s ease;
+        }
+        
+        
+        .contact-card:nth-child(1) .contact-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .contact-card:nth-child(2) .contact-icon {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        }
+        
+        .contact-card:nth-child(3) .contact-icon {
+            background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
+        }
+        
+        .contact-card:nth-child(4) .contact-icon {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+        
+        .contact-card:nth-child(1):hover .contact-icon {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .contact-card:nth-child(2):hover .contact-icon {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+        }
+        
+        .contact-card:nth-child(3):hover .contact-icon {
+            background: linear-gradient(135deg, #0D47A1 0%, #2196F3 100%);
+        }
+        
+        .contact-card:nth-child(4):hover .contact-icon {
+            background: linear-gradient(135deg, #434343 0%, #000000 100%);
+        }
+        
+        .contact-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .contact-info {
+            color: #7f8c8d;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-hours {
+            color: #95a5a6;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+       
+        .contact-card:nth-child(1) .contact-btn {
+            background-color: #667eea;
+        }
+        
+        .contact-card:nth-child(2) .contact-btn {
+            background-color: #4CAF50;
+        }
+        
+        .contact-card:nth-child(3) .contact-btn {
+            background-color: #2196F3;
+        }
+        
+        .contact-card:nth-child(4) .contact-btn {
+            background-color: #000000;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-card:nth-child(1) .contact-btn:hover {
+            background-color: #5a6fd8;
+        }
+        
+        .contact-card:nth-child(2) .contact-btn:hover {
+            background-color: #43A047;
+        }
+        
+        .contact-card:nth-child(3) .contact-btn:hover {
+            background-color: #1E88E5;
+        }
+        
+        .contact-card:nth-child(4) .contact-btn:hover {
+            background-color: #333333;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.4s both;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #3498db;
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            color: #7f8c8d;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.5s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        
+        .contact-form-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.6s both;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .form-container:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: auto;
+            opacity: 0;
+            animation: footerReveal 0.8s ease-out 1.8s both;
+        }
+        
+        @keyframes footerReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #3498db;
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .social-icons a.tiktok:hover {
+            background-color: #000000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+        
+        
+        button, a, .btn, .category-card, .contact-card, .faq-item, .form-container {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
+            .hero-support h1 {
+                font-size: 36px;
+            }
+            
+            .hero-support p {
+                font-size: 18px;
+            }
+            
+            .categories-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="index.html" class="logo">2ndip<span>ShopCBC</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about us.html">ABOUT US</a></li>
+                    <li><a href="purchase.html">PURCHASE</a></li>
+                    <li><a href="support.html" class="active">SUPPORT</a></li>
+                    <li><a href="sign in.html">SIGN IN</a></li>
+                    <li class="cart-icon">
+                        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-support">
+        <div class="container">
+            <h1>24/7 Customer Support</h1>
+            <p>We're here to help you with any questions or issues. Get instant assistance through multiple channels.</p>
+            <a href="#contact-form" class="btn">Contact Support</a>
+        </div>
+    </section>
+
+    <!-- Support Categories Section -->
+    <div class="container">
+        <section class="support-categories">
+            <h2 class="section-title">How Can We Help You?</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Order Support</h3>
+                    <p>Track your order, modify shipping address, or check delivery status.</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3>Returns & Refunds</h3>
+                    <p>Initiate returns, check refund status, or get help with exchanges.</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Technical Support</h3>
+                    <p>Get help with iPhone setup, troubleshooting, or technical issues.</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Warranty & Repairs</h3>
+                    <p>Check warranty status, schedule repairs, or get service information.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods Section -->
+        <section class="contact-methods">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Support</h3>
+                    <div class="contact-info">+6014-204 7159</div>
+                    <div class="contact-hours">Sunday-Thursday: 10:00 AM- 9:00 PM <br>Friday-Saturday : 11:00 AM- 8:00PM </div>
+                    <a href="tel:+18001234567" class="contact-btn">Call Now</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <div class="contact-info">Available 24/7</div>
+                    <div class="contact-hours">Instant response<br>No wait time</div>
+                    <a href="index.html#expert-chat" class="contact-btn">Start Chat</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Support</h3>
+                    <div class="contact-info">2ndiphoneshop@gmail.com</div>
+                    <div class="contact-hours">Response within 24 hours<br>Detailed assistance</div>
+                    <a href="mailto:support@2ndipshopcbc.com" class="contact-btn">Send Email</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok</h3>
+                    <div class="contact-info">@2ndipshopcbc</div>
+                    <div class="contact-hours">Latest updates & tutorials<br>Quick tips & reviews</div>
+                    <a href="https://www.tiktok.com/@2ndipshopcbc" target="_blank" class="contact-btn">Follow Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I track my order?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can track your order by logging into your account and visiting the 'Order History' section. Alternatively, use the tracking link sent to your email. For real-time updates, contact our support team.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your return policy?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day return policy for all products. Items must be in original condition with all accessories. Returns are free for defective products. Please contact support to initiate a return.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does warranty support take?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Warranty claims are typically processed within 2-3 business days. Repairs may take 5-10 business days depending on the issue. Express repair services are available for an additional fee.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I change my shipping address after ordering?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can change your shipping address within 24 hours of placing your order. Contact our support team immediately with your order number and new address.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide technical support for iPhone setup?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our technical support team can guide you through iPhone setup, data transfer, and basic troubleshooting. Contact us via phone or live chat for immediate assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section" id="contact-form">
+            <h2 class="section-title">Send Us a Message</h2>
+            <div class="form-container">
+                <form id="supportForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name *</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category" class="form-label">Support Category *</label>
+                        <select id="category" class="form-control" required>
+                            <option value="">Select a category</option>
+                            <option value="order">Order Support</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="returns">Returns & Refunds</option>
+                            <option value="warranty">Warranty & Repairs</option>
+                            <option value="billing">Billing & Payment</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orderId" class="form-label">Order ID (if applicable)</label>
+                        <input type="text" id="orderId" class="form-control" placeholder="Enter your order number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message *</label>
+                        <textarea id="message" class="form-control" placeholder="Please describe your issue in detail..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CONTACT US</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Customer Service</a></li>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html">Returns</a></li>
+                        <li><a href="support.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>IPHONE INFO</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">iPhone Models</a></li>
+                        <li><a href="index.html">Accessories</a></li>
+                        <li><a href="purchase.html">Trade-in</a></li>
+                        <li><a href="index.html">Shop Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>SUPPORT</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Technical Support</a></li>
+                        <li><a href="support.html">Warranty Info</a></li>
+                        <li><a href="support.html">Repair Services</a></li>
+                        <li><a href="support.html">Contact Options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <p>Stay connected with us on social media</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@2ndipshopcbc" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 2ndipShopCBC. All rights reserved. | Designed with ❤️ for iPhone lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update cart count with animation
+        function updateCartCount() {
+            const savedCart = localStorage.getItem('iphoneCart');
+            let totalItems = 0;
+            
+            if (savedCart) {
+                const cart = JSON.parse(savedCart);
+                cart.forEach(item => {
+                    totalItems += item.quantity;
+                });
+            }
+            
+            const cartCountElement = document.getElementById('cartCount');
+            cartCountElement.textContent = totalItems;
+            
+            // Add animation to cart count when it changes
+            cartCountElement.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartCountElement.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // Highlight current page
+        function highlightCurrentPage() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkPage = link.getAttribute('href');
+                
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // FAQ Accordion functionality
+        function setupFAQAccordion() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        }
+        
+        // Function to show custom alert message
+        function showAlertMessage() {
+            // Create alert overlay
+            const alertOverlay = document.createElement('div');
+            alertOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            // Create alert box
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                background-color: white;
+                border-radius: 15px;
+                padding: 40px;
+                text-align: center;
+                max-width: 500px;
+                width: 90%;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                transform: translateY(-50px);
+                opacity: 0;
+                transition: all 0.5s ease;
+            `;
+            
+            // Add icon
+            const icon = document.createElement('div');
+            icon.style.cssText = `
+                width: 80px;
+                height: 80px;
+                background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto 25px;
+                color: white;
+                font-size: 40px;
+            `;
+            icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+            
+            // Add title
+            const title = document.createElement('h3');
+            title.textContent = 'Message Sent Successfully!';
+            title.style.cssText = `
+                color: #2c3e50;
+                margin-bottom: 15px;
+                font-size: 28px;
+            `;
+            
+            // Add message
+            const message = document.createElement('p');
+            message.textContent = 'Your message has been sent to 2ndipshop. We will contact you soon.';
+            message.style.cssText = `
+                color: #7f8c8d;
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 30px;
+            `;
+            
+            // Add button
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = 'OK';
+            closeBtn.style.cssText = `
+                padding: 15px 40px;
+                background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+                color: white;
+                border: none;
+                border-radius: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            `;
+            
+            // Hover effect for button
+            closeBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 5px 15px rgba(52, 152, 219, 0.3)';
+            });
+            
+            closeBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+            
+            // Close alert when button clicked
+            closeBtn.addEventListener('click', function() {
+                alertOverlay.style.opacity = '0';
+                alertBox.style.opacity = '0';
+                alertBox.style.transform = 'translateY(-50px)';
+                setTimeout(() => {
+                    document.body.removeChild(alertOverlay);
+                }, 300);
+            });
+            
+            // Close alert when clicking outside
+            alertOverlay.addEventListener('click', function(e) {
+                if (e.target === alertOverlay) {
+                    alertOverlay.style.opacity = '0';
+                    alertBox.style.opacity = '0';
+                    alertBox.style.transform = 'translateY(-50px)';
+                    setTimeout(() => {
+                        document.body.removeChild(alertOverlay);
+                    }, 300);
+                }
+            });
+            
+            // Assemble alert box
+            alertBox.appendChild(icon);
+            alertBox.appendChild(title);
+            alertBox.appendChild(message);
+            alertBox.appendChild(closeBtn);
+            alertOverlay.appendChild(alertBox);
+            document.body.appendChild(alertOverlay);
+            
+            // Animate in
+            setTimeout(() => {
+                alertOverlay.style.opacity = '1';
+                alertBox.style.opacity = '1';
+                alertBox.style.transform = 'translateY(0)';
+            }, 10);
+        }
+        
+        // Support form handling
+        function setupSupportForm() {
+            const supportForm = document.getElementById('supportForm');
+            
+            supportForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const category = document.getElementById('category').value;
+                const phone = document.getElementById('phone').value;
+                const orderId = document.getElementById('orderId').value;
+                const message = document.getElementById('message').value;
+                
+                // Show loading state
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Show custom alert message
+                    showAlertMessage();
+                    
+                    // Reset form
+                    supportForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            });
+        }
+        
+        // Add hover effects to all interactive elements
+        function addHoverEffects() {
+            const interactiveElements = document.querySelectorAll('a, button, .btn, .category-card, .contact-card, .faq-item, .form-container');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                });
+            });
+        }
+        
+        // Stagger animation for category cards
+        function staggerCategoryCards() {
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1 + 1}s`;
+            });
+        }
+        
+        // Stagger animation for contact cards
+        function staggerContactCards() {
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1 + 1.2}s`;
+            });
+        }
+        
+        // Stagger animation for FAQ items
+        function staggerFAQItems() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1 + 1.4}s`;
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            highlightCurrentPage();
+            setupFAQAccordion();
+            setupSupportForm();
+            addHoverEffects();
+            staggerCategoryCards();
+            staggerContactCards();
+            staggerFAQItems();
+            
+            // Make entire category card clickable
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.querySelector('h3').textContent;
+                    showNotification(`Opening ${category} details...`, 'info');
+                });
+            });
+            
+            // Add click handlers for contact buttons
+            document.querySelectorAll('.contact-btn').forEach(button => {
+                if (!button.getAttribute('href').startsWith('tel:') && 
+                    !button.getAttribute('href').startsWith('mailto:') &&
+                    !button.getAttribute('href').includes('tiktok')) {
+                    button.addEventListener('click', function(e) {
+                        if (this.getAttribute('href') === 'index.html#expert-chat') {
+                            // Already linked to index.html, let it navigate normally
+                            return;
+                        }
+                        e.preventDefault();
+                        const service = this.closest('.contact-card').querySelector('h3').textContent;
+                        showNotification(`Starting ${service}...`, 'info');
+                    });
+                }
+            });
+            
+            // Preload animation to prevent flash
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Smooth navigation for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Handle page transitions for navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if (!link.classList.contains('cart-icon')) {
+                    link.addEventListener('click', function(e) {
+                        if (this.href && !this.href.includes('#') && this.href.includes('.html')) {
+                            e.preventDefault();
+                            const href = this.href;
+                            
+                            // Add fade out animation
+                            document.body.style.opacity = '0';
+                            document.body.style.transition = 'opacity 0.3s ease';
+                            
+                            setTimeout(() => {
+                                window.location.href = href;
+                            }, 300);
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            // Create notification element
+            const notification = document.createElement('div');
+            
+            // Set colors based on type
+            const bgColor = type === 'success' ? '#2ecc71' : type === 'error' ? '#e74c3c' : '#3498db';
+            
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: ${bgColor};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 9999;
+                transform: translateY(100px);
+                opacity: 0;
+                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateY(0)';
+                notification.style.opacity = '1';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateY(100px)';
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+			
+        }
+    </script>
+
+</body>
+</html>

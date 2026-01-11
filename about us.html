@@ -1,0 +1,1319 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - 2ndipShopCBC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* Untuk smooth scroll dengan header */
+        }
+        
+        body {
+            background-color: #D5F6FB;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3498db;
+            animation: underlineSlide 0.3s ease;
+        }
+        
+        @keyframes underlineSlide {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .cart-icon {
+            margin-left: 10px;
+            position: relative;
+        }
+        
+        .cart-icon a {
+            color: #555;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon a:hover {
+            color: #3498db;
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        
+        .hero-about {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 50px;
+            border-radius: 0 0 20px 20px;
+            animation: heroSlideUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes heroSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-about h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: textReveal 0.8s ease-out 0.4s both;
+        }
+        
+        .hero-about p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: textReveal 0.8s ease-out 0.6s both;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            background-color: white;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: textReveal 0.8s ease-out 0.8s both;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+            align-items: center;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1s both;
+        }
+        
+        @keyframes contentReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .about-text-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+        
+        .about-text-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-text-box h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 36px;
+            text-align: left;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-text-box h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .about-text-box p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        .about-image-box {
+            background: white;
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(0);
+        }
+        
+        .about-image-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image-box:hover img {
+            transform: scale(1.05);
+        }
+        
+        
+        .values-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.2s both;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+            transition: all 0.4s ease;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .value-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 22px;
+            transition: color 0.3s ease;
+        }
+        
+        .value-card:hover h3 {
+            color: #3498db;
+        }
+        
+        .value-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        
+        .vision-mission-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.4s both;
+        }
+        
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .vm-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+        
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .vm-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .vm-card:hover .vm-icon {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .vm-icon-front, .vm-icon-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        
+        .vm-icon-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .vm-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .vm-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        .objectives-list {
+            text-align: left;
+            margin-top: 20px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        .objectives-list li {
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        
+        .store-location-section {
+            margin-bottom: 120px;
+            opacity: 0;
+            animation: contentReveal 0.8s ease-out 1.6s both;
+        }
+        
+        .location-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .map-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .map-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .store-info-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+        
+        .store-info-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .store-info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .store-info-header h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .store-info-header h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .store-contact-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .store-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .store-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .store-detail-box {
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .store-detail-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .store-detail-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .store-detail-box h4 i {
+            color: #3498db;
+        }
+        
+        .store-detail-box p {
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 17px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        .store-hours-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .hours-box {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .hours-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hours-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .hours-box .time {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .hours-box .days {
+            color: #7f8c8d;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+       
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 0 20px;
+            margin-top: 40px;
+            opacity: 0;
+            animation: footerReveal 0.8s ease-out 1.8s both;
+        }
+        
+        @keyframes footerReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #3498db;
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+        
+        .copyright p {
+            text-align: center;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
+            .hero-about h1 {
+                font-size: 36px;
+            }
+            
+            .hero-about p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-text-box, .about-image-box {
+                padding: 25px;
+            }
+            
+            .about-image-box {
+                height: 300px;
+                order: -1;
+            }
+            
+            .map-container {
+                height: 350px;
+                font-size: 60px;
+            }
+            
+            .store-info-container {
+                padding: 25px;
+            }
+            
+            .store-details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .store-hours-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vm-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .store-location-section {
+                margin-bottom: 80px;
+            }
+            
+            
+            .about-text-box p,
+            .value-card p,
+            .vm-card p,
+            .store-detail-box p,
+            .hero-about p {
+                text-align: left;
+                text-justify: auto;
+            }
+            
+            /* Adjust scroll padding for mobile */
+            html {
+                scroll-padding-top: 150px;
+            }
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        button, a, .btn, .value-card, .vm-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        /* Page load animation */
+        .page-transition {
+            animation: pageLoad 0.8s ease-out;
+        }
+        
+        @keyframes pageLoad {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+
+        .content-end-spacing {
+            height: 60px;
+            clear: both;
+        }
+        
+        
+        p {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        
+        .hours-box p,
+        .copyright p,
+        .footer-column p,
+        .btn,
+        .section-title,
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+        }
+        
+        .objectives-list li {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="index.html" class="logo">2ndip<span>ShopCBC</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about us.html" class="active">ABOUT US</a></li>
+                    <li><a href="purchase.html">PURCHASE</a></li>
+                    <li><a href="support.html">SUPPORT</a></li>
+                    <li><a href="sign in.html">SIGN IN</a></li>
+                    <li class="cart-icon">
+                        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="container">
+            <h1>About 2ndipShopCBC</h1>
+            <p>Your trusted partner for authentic iPhones and premium accessories. We bring innovation to your fingertips with quality products and exceptional service.</p>
+            
+            <a href="#our-story" class="btn">Explore Our Shop</a>
+        </div>
+		
+    </section>
+
+    
+    <div class="container">
+        <section class="about-content" id="our-story">
+            <div class="about-text-box">
+                <h2>Our Story</h2>
+                <p>Founded in 2020, 2ndipShopCBC began as a small startup at Pusat Perniagaan Cengal besides Amanjaya mall with a big vision to make Apple devices more affordable without compromising on quality. We noticed that many people wanted to own an iPhone but were discouraged by high prices and the risk of buying unreliable second-hand phones. This inspired us to create a shop that focuses on trust, transparency, and quality assurance..</p>
+                <p>In the early stage, the business started on a small scale by sourcing pre-owned iPhones from trusted suppliers and individual sellers. Each device was carefully inspected, tested, and restored to ensure it met our quality standards. Although the operations were modest, customer satisfaction was always our top priority.</p>
+                <p>As positive feedback and word-of-mouth recommendations grew, the shop began to expand its product range, offering more iPhone models and storage options to meet different customer needs and budgets. We also introduced warranty coverage and after-sales support to strengthen customer confidence and loyalty.</p>
+                <p>Over time, our 2nd iPhone Shop established a strong reputation for honesty and reliability. By continuously improving our inspection process, pricing strategy, and customer service, we evolved from a small startup into a trusted destination for second-hand iPhones. Today, we remain committed to providing high-quality devices, fair prices, and excellent service as we continue to grow and serve more customers.</p>
+			</div>
+            <div class="about-image-box">
+                <img src="shop-logo.jpeg" alt="2ndipShopCBC Logo">
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="values-section">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Authenticity Guaranteed</h3>
+                    <p>Every iPhone we sell is 100% authentic with verified serial numbers and official Apple warranty. We never compromise on product quality.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Customer First</h3>
+                    <p>Your satisfaction is our priority. We provide personalized support and after-sales service to ensure you have the best experience.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Best Price Promise</h3>
+                    <p>We offer competitive prices without compromising quality. Our price match guarantee ensures you always get the best deal.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>We understand you want your new iPhone quickly. Our efficient logistics ensure fast and secure delivery to your doorstep.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision, Mission & Objectives Section -->
+        <section class="vision-mission-section">
+            <h2 class="section-title">Our Vision, Mission & Objectives</h2>
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <div class="vm-icon-front">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="vm-icon-back">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become a trusted and leading second-hand iPhone shop that provides high-quality, affordable price and reliable Apple devices to customers</p>
+                </div>
+                
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <div class="vm-icon-front">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="vm-icon-back">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide authentic Apple products with exceptional value, outstanding customer service, and innovative solutions that enhance our customers' digital lifestyles.</p>
+                </div>
+                
+                <div class="vm-card">
+                    <div class="vm-icon">
+                        <div class="vm-icon-front">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <div class="vm-icon-back">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                    </div>
+                    <h3>Our Objectives</h3>
+                    <ul class="objectives-list">
+                        <li>To provide a wide range of second-hand iPhones based on different models, storage options, and budgets</li>
+                        <li>To ensure all devices meet quality, performance, and safety standards</li>
+                        <li>To establish long-term customer relationships through trust and satisfaction</li>
+                        <li>Launch comprehensive trade-in program</li>
+                        <li>To increase business growth by maintaining consistent service quality and reliability</li>
+                        <li>To create a safe and trustworthy platform for buying and selling second-hand iPhones</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Location Section -->
+        <section class="store-location-section">
+            <h2 class="section-title">Our Flagship Store</h2>
+            <div class="location-container">
+                <!-- Large Map Section -->
+                <div class="map-container">
+                    <img src="store-map.jpeg" alt="2ndipShopCBC Flagship Store Location">
+                </div>
+                
+                <!-- Store Information Below Map -->
+                <div class="store-info-container">
+                    <div class="store-info-header">
+                        <h3>Store Information & Facilities</h3>
+                        <a href="support.html" class="store-contact-btn">
+                            <i class="fas fa-phone" style="margin-right: 8px;"></i>
+                            Contact Store
+                        </a>
+                    </div>
+                    
+                    <div class="store-details-grid">
+                        <div class="store-detail-box">
+                            <h4><i class="fas fa-map-marker-alt"></i> Location Details</h4>
+                            <p><strong>Address:</strong> No. 82-G & 82, 1, Jalan PPC 3, Pusat Perniagaan Cengal, 08000 Sungai Petani, Kedah</p>
+                            <p><strong>Landmark:</strong> Opposite Amanjaya mall</p>
+                        </div>
+                        
+                        <div class="store-detail-box">
+                            <h4><i class="fas fa-phone"></i> Contact Information</h4>
+                            <p><strong>Email:</strong>2ndiphoneshop@gmail.com</p>
+                            <p><strong>WhatsApp:</strong> +6014-204 7159</p>
+                        </div>
+                        
+                        <div class="store-detail-box">
+                            <h4><i class="fas fa-star"></i> Store Features</h4>
+                            <p>Dedicated Genius Bar for technical support</p>
+                            <p>Hands-on product demo zones</p>
+                            <p>Apple Authorized Service Center</p>
+                            <p>Trade-in counter for old devices</p>
+                            <p>Free WiFi throughout the store</p>
+                        </div>
+                    </div>
+                    
+                    <div class="store-hours-grid">
+                        <div class="hours-box">
+                            <h4>Weekdays</h4>
+                            <p class="days">Sunday - Thursday</p>
+                            <p class="time">10:00 AM - 9:00 PM</p>
+                        </div>
+                        
+                        <div class="hours-box">
+                            <h4>Weekends</h4>
+                            <p class="days">Friday - Saturday</p>
+                            <p class="time">11:00 AM - 8:00 PM</p>
+                        </div>
+                        
+                        <div class="hours-box">
+                            <h4>Customer Service</h4>
+                            <p class="days">Phone Support</p>
+                            <p class="time">10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 30px; color: #7f8c8d; font-size: 16px; text-align: center; padding: 15px; background-color: #f8f9fa; border-radius: 10px;">
+                        <i class="fas fa-info-circle" style="color: #3498db; margin-right: 10px;"></i>
+                        Our flagship store offers exclusive services including personal shopping assistance, device setup help, and regular workshops on using Apple products. Book a private consultation session for personalized recommendations.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+       
+        <div class="content-end-spacing"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CONTACT US</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Customer Service</a></li>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html">Returns</a></li>
+                        <li><a href="support.html">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>IPHONE INFO</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">iPhone Models</a></li>
+                        <li><a href="index.html">Accessories</a></li>
+                        <li><a href="support.html">Trade-in</a></li>
+                        <li><a href="index.html">Shop Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>ABOUT COMPANY</h3>
+                    <ul class="footer-links">
+                        <li><a href="about us.html">Our Story</a></li>
+                        <li><a href="about us.html">Our Values</a></li>
+                        <li><a href="about us.html">Vision & Mission</a></li>
+                        <li><a href="support.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <p>Stay connected with us on social media</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 2ndipShopCBC. All rights reserved. | Designed with ❤️ for iPhone lovers</p>
+                <p style="margin-top: 10px;">Visit our flagship store at Level 3, Tech Hub Mall, Jalan Imbi, 55100 Kuala Lumpur</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        function updateCartCount() {
+            const savedCart = localStorage.getItem('iphoneCart');
+            let totalItems = 0;
+            
+            if (savedCart) {
+                const cart = JSON.parse(savedCart);
+                cart.forEach(item => {
+                    totalItems += item.quantity;
+                });
+            }
+            
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            // Add animation to cart count when it changes
+            const cartCount = document.getElementById('cartCount');
+            cartCount.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                cartCount.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // Highlight current page
+        function highlightCurrentPage() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkPage = link.getAttribute('href');
+                
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Smooth navigation for internal links dengan offset untuk header
+        function smoothNavigation() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20; // 20px extra spacing
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL tanpa reload page
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+        }
+        
+        // Add page load animation
+        function addPageLoadAnimation() {
+            document.body.classList.add('page-transition');
+            
+            // Animate elements sequentially
+            const animatedElements = document.querySelectorAll('.hero-about, .about-content, .values-section, .vision-mission-section, .store-location-section, footer');
+            animatedElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            highlightCurrentPage();
+            smoothNavigation();
+            addPageLoadAnimation();
+            
+            // Add subtle hover effects to all interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .btn, .value-card, .vm-card');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                });
+            });
+            
+            // Preload animation to prevent flash
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Add click to flip for VM icons on mobile
+            const vmCards = document.querySelectorAll('.vm-card');
+            if (window.innerWidth <= 768) {
+                vmCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const icon = this.querySelector('.vm-icon');
+                        if (icon.style.transform === 'rotateY(180deg)') {
+                            icon.style.transform = 'rotateY(0deg)';
+                        } else {
+                            icon.style.transform = 'rotateY(180deg)';
+                        }
+                    });
+                });
+            }
+            
+            // Check if URL has hash and scroll to section on page load
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const targetElement = document.querySelector(window.location.hash);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 500); // Delay sedikit untuk pastikan page loaded
+            }
+        });
+        
+        // Handle page transitions
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a') && e.target.href && !e.target.href.includes('#') && 
+                !e.target.href.includes('javascript:')) {
+                e.preventDefault();
+                const href = e.target.href;
+                
+                // Add fade out animation
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.3s ease';
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>
